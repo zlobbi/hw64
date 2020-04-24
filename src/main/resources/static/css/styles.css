@@ -1,0 +1,15 @@
+.form-control:focus {
+    border-color: gray !important;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 1) !important;
+}
+
+.body {
+    /*background-color: lightblue;*/
+    background-image: none;
+}
+
+.line {
+    text-decoration: line-through;
+    -webkit-text-decoration-color: green;
+    text-decoration-color: green;
+}
