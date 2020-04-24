@@ -7,9 +7,14 @@ window.addEventListener('load', function () {
 
     getTasks().then(r => r.json()).then(data => {
         let count = data.length;
+        let tasks = document.getElementById('tasks');
         for(let i = 0; i < count; i++) {
             let task = createTaskElem(data[i]);
-            document.getElementById('tasks').append(task);
+            if(data[i].finished) {
+                tasks.append(task);
+            } else {
+                tasks.prepend(task);
+            }
         }
     })
 
@@ -27,7 +32,7 @@ window.addEventListener('load', function () {
         } else {
             document.getElementsByTagName('input')[0].placeholder = 'task name';
             sendTaskToServer(data).then(res=> res.json()).then(data => document
-                .getElementById('tasks').append(createTaskElem(data)));
+                .getElementById('tasks').prepend(createTaskElem(data)));
             document.getElementsByTagName('input')[0].focus();
             return true;
         }
@@ -59,7 +64,7 @@ window.addEventListener('load', function () {
     function createTaskElem(task) {
         let li = document.createElement('li');
         li.id = task.id;
-        li.classList.add('list-group-item', 'list-group-item-primary', 'border-light', 'rounded', 'text-secondary', 'text-capitalize');
+        li.classList.add('list-group-item', 'list-group-item-danger', 'border-light', 'rounded', 'text-secondary', 'text-capitalize');
         li.innerHTML = task.task + ' ' + '<span class="badge badge-danger float-right badge-pill align-self-end">' + 'new' + '</span>';
         if(task.finished) {
             finishedTaskClassList(li);
@@ -77,7 +82,7 @@ window.addEventListener('load', function () {
     }
 
     function finishedTaskClassList(task) {
-        task.classList.remove('list-group-item-primary')
+        task.classList.remove('list-group-item-danger')
         task.classList.add('line', 'list-group-item-success');
         let span = task.getElementsByTagName('span')[0];
         span.classList.remove('badge-danger');

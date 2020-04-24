@@ -10,18 +10,19 @@
 </head>
 <body class="body">
 <div class="container">
-    <section id="page-splash" class="page-splash d-flex mx-auto">
-        <div class="mt-5 mx-auto">
+    <section class="d-flex mx-auto">
+        <div class="my-5 mx-auto">
             <form id="task-form">
-                <div class="input-group mb-3">
+                <div class="input-group mb-2">
                     <input type="text" name="task-name" class="form-control" placeholder="task name" onfocus="this.value=''" autofocus>
                     <div class="input-group-append">
-                        <button class="btn bg-info text-light" type="submit">add</button>
+                        <button class="btn bg-danger text-light" type="submit">add</button>
                     </div>
                 </div>
             </form>
+            <li class="list-group-item bg-danger border-light rounded text-light text-center active">New tasks </li>
             <ul id="tasks" class="list-group tasks" style="user-select: none">
-                <li class="list-group-item bg-info border-light rounded text-light active">My tasks </li>
+                <li class="list-group-item bg-success border-light rounded text-light text-center active">Finished tasks </li>
             </ul>
         </div>
     </section>

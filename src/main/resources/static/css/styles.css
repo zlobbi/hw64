@@ -3,6 +3,10 @@
     box-shadow: 0 0 5px rgba(128, 128, 128, 1) !important;
 }
 
+.body {
+    background-color: whitesmoke;
+}
+
 .line {
     text-decoration: line-through;
     -webkit-text-decoration-color: green;
